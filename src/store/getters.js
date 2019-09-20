@@ -51,9 +51,14 @@ export const commentsArrs = state => {
 
 export const randomName = state => state.touristObj.randomName;
 
-export const touris = () => {
-    let tourisInfos = JSON.parse(getCookie('touris'));
-    return tourisInfos
+export const touris = (state) => {
+  console.log(getCookie('touris'));
+  return state.touristObj
+  if (getCookie('touris')!=null){
+      let tourisInfos = JSON.parse(getCookie('touris'));
+      return tourisInfos
+    }
+    return {randomName:''}
 };
 
 export const changeLogin = state => state.changeLogin;

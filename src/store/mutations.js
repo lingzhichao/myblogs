@@ -34,6 +34,8 @@ function getall(state) {
 // 将游客信息存入cookie
 function setNameCookie(state) {
     setCookie('touris', JSON.stringify(state.touristObj), 1);
+  console.log(2222222222222222222)
+
 }
 
 // 获取游客姓名并存入state池
@@ -102,6 +104,7 @@ export const randomName = (state) => {
     let y = parseInt(Math.random() * 10 + 1);
     state.touristObj.randomName = `游客${x}${y}`;
     state.touristObj.header = state.allHeadImg[ y - 1 ];
+    console.log(1111111111111111)
     setNameCookie(state)
 };
 
@@ -123,13 +126,14 @@ export const uploadComments = (state, values) => {
 
 export const logins = (state, data) => {
     let datas = qs.stringify(data);
+
     // axios.post('http://api.tianapi.com/meinv/', datas).then((res)=>{
     axios.get('http://api.tianapi.com/meinv/', {params: data}).then((res)=>{
         console.log('登录成功!');
+      state.changeLogin = 1;
+      setCookie('isLogin', state.changeLogin ,1 );
+      delCookie('touris'); // 删除游客信息
 
-        state.changeLogin = 1;
-        setCookie('isLogin', state.changeLogin ,1 );
-        delCookie('touris'); // 删除游客信息
     }).catch(()=>{
         console.log('请求失败');
     });

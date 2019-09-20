@@ -14,7 +14,6 @@ const state = {
         {title: "fsagfsg", content: "daf", date: "2018-08-08", id: 7, types: "h5"},
         {title: "fsagfsg", content: "daf", date: "2018-08-08", id: 8, types: "H5"},
         {title: "fsagfsg", content: "daf", date: "2018-08-08", id: 9, types: "python"},
-
     ], // 所有文章数组
     typeArticle: [], // 指定分类文章数组
     articlePageObj:{
@@ -50,7 +49,6 @@ const state = {
         "../../../static/images/gr_img4.jpg",
         "../../../static/images/gr_img4.jpg",
         "../../../static/images/gr_img3.jpg",
-
     ], // 游客随机头像
     changeLogin: 0, // 是否登录
     articleDetail: ""
